@@ -7,6 +7,6 @@ namespace SpaceRoguelike.Movement
     public interface IDirectionalMovement
     {
         public void SetMaximalSpeed(float speed);
-        public void Move(MoveDirection direction, float speed);
+        public void Move(MoveDirection direction, float impulse);
     }
 }

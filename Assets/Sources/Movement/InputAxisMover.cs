@@ -12,7 +12,7 @@ namespace SpaceRoguelike.Movement
 
 
         //TODO: Add getting speed from player characteristics
-        private float Speed = 2;
+        private float Impulse = 2;
         private float MaximalSpeed = 3;
         private float RotationSpeed = 1;
 
@@ -39,7 +39,7 @@ namespace SpaceRoguelike.Movement
         {
             var verticalAxis = UnityEngine.Input.GetAxis(VerticalAxis);
 
-            Movement.SetMaximalSpeed(Mathf.Min(Speed, MaximalSpeed));
+            Movement.SetMaximalSpeed(MaximalSpeed);
 
             var horizontalAxis = UnityEngine.Input.GetAxis(HorizontalAxis);
 
@@ -54,11 +54,11 @@ namespace SpaceRoguelike.Movement
 
             if(verticalAxis > 0)
             {
-                Movement.Move(MoveDirection.Up, Speed);
+                Movement.Move(MoveDirection.Up, Impulse);
             }
             else if(verticalAxis < 0)
             {
-                Movement.Move(MoveDirection.Down, Speed);
+                Movement.Move(MoveDirection.Down, Impulse);
             }
         }
     }
