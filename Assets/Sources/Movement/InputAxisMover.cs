@@ -21,11 +21,13 @@ namespace SpaceRoguelike.Movement
 
         private void Start()
         {
-            Rotation = gameObject.AddComponent<Rigidbody2DRotation>();
+            Rotation = GetComponent<Rigidbody2DRotation>();
+            Movement = GetComponent<Rigidbody2DMovement>();
+            Rotation ??= gameObject.AddComponent<Rigidbody2DRotation>();
+            Movement ??= gameObject.AddComponent<Rigidbody2DMovement>();
             switch(InputDevice)
             {
                 case InputDevice.Keyboard:
-                    Movement = gameObject.AddComponent<Rigidbody2DMovement>();
                     break;
                 case InputDevice.UIButtons:
                     //TODO: activating buttons on screen
