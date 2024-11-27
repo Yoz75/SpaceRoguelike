@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SpaceRoguelike.Input
+namespace SpaceRoguelike
 {
 	enum InputDevice
 	{
