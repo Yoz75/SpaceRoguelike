@@ -40,12 +40,13 @@ namespace SpaceRoguelike.Movement
             Rotation ??= gameObject.AddComponent<Rigidbody2DRotation>();
             Movement ??= gameObject.AddComponent<Rigidbody2DMovement>();
 
-
             switch(InputDevice)
             {
                 case InputDevice.Keyboard:
+                    InputButtonsCanvas.SetActive(false);
                     break;
                 case InputDevice.UIButtons:
+                    InputButtonsCanvas.SetActive(true);
                     //TODO: activating buttons on screen
                     MoveForwardButton = GameObject.FindGameObjectWithTag(MoveForwardButtonTag).GetComponent<EventTrigger>();
                     RotateRightButton = GameObject.FindGameObjectWithTag(RotateRightButtonTag).GetComponent<EventTrigger>();
