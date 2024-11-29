@@ -5,6 +5,7 @@ namespace SpaceRoguelike
     /// <summary>
     /// All player characteristics including name.
     /// </summary>
+    [CreateAssetMenu(fileName ="NewPlayer", menuName ="SpaceRoguelike/characteristics/new player characteristics")]
     public class PlayerCharacteristics : ScriptableObject
     {
         public string Name;
