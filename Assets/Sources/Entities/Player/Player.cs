@@ -30,6 +30,7 @@ namespace SpaceRoguelike
         private void Start()
         {
             DefeatScreen.SetActive(false);
+            Heal(float.MaxValue);
         }
 
         /// <summary>
