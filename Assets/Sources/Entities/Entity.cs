@@ -5,7 +5,7 @@ namespace SpaceRoguelike
     /// <summary>
     /// Base class for all alive-like things
     /// </summary>
-    public abstract class Entity : MonoBehaviour
+    public abstract class Entity : MonoBehaviour, IDamageable, IHealable
     {
         public float Health
         {
