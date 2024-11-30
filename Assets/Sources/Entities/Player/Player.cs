@@ -8,18 +8,11 @@ namespace SpaceRoguelike
     public class Player : Entity
     {
         [SerializeField] private GameObject DefeatScreen;
-        private PlayerCharacteristics RealCharacteristics;
-        public PlayerCharacteristics Characteristics
+        private PlayerCharacteristics Characteristics;
+
+        public override EntityCharacteristics GetCharacteristics()
         {
-            get
-            {
-                return RealCharacteristics;
-            }
-            set
-            {
-                RealCharacteristics = value;
-                SetDependedFields(RealCharacteristics);
-            }
+            return Characteristics;
         }
 
         protected override void Die()
@@ -31,15 +24,6 @@ namespace SpaceRoguelike
         {
             DefeatScreen.SetActive(false);
             Heal(float.MaxValue);
-        }
-
-        /// <summary>
-        /// Set fields depended on characteristics (name for example)
-        /// </summary>
-        /// <param name="characteristics"></param>
-        private void SetDependedFields(PlayerCharacteristics characteristics)
-        {
-            Name = characteristics.Name;
         }
     }
 }

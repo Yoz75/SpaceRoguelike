@@ -7,22 +7,12 @@ namespace SpaceRoguelike
     /// </summary>
     public abstract class Entity : MonoBehaviour, IDamageable, IHealable
     {
+        public abstract EntityCharacteristics GetCharacteristics();
+
         public float Health
         {
             get;
             private set;
-        }
-
-        public float MaximalHealth
-        {
-            get;
-            private set;
-        }
-
-        public string Name
-        {
-            get;
-            protected set;
         }
 
         /// <summary>
@@ -48,19 +38,21 @@ namespace SpaceRoguelike
         /// <param name="health">new maximal health</param>
         protected void SetMaximalHealth(float health)
         {
-            MaximalHealth = health;
-            if(Health > MaximalHealth)
+            var characteristics = GetCharacteristics();
+            characteristics.MaximalHealth = health;
+            if(Health > characteristics.MaximalHealth)
             {
-                Health = MaximalHealth;
+                Health = characteristics.MaximalHealth;
             }
         }
 
         public void Heal(float health)
         {
+            var characteristics = GetCharacteristics();
             Health += health;
-            if(Health > MaximalHealth)
+            if(Health > characteristics.MaximalHealth)
             {
-                Health = MaximalHealth;
+                Health = characteristics.MaximalHealth;
             }
         }
 
