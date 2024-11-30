@@ -30,6 +30,16 @@ namespace SpaceRoguelike
             Health -= damage;
         }
 
+        public void Heal(float health)
+        {
+            var characteristics = GetCharacteristics();
+            Health += health;
+            if(Health > characteristics.MaximalHealth)
+            {
+                Health = characteristics.MaximalHealth;
+            }
+        }
+
         /// <summary>
         /// Set maximal health to <paramref name="health"/>. 
         /// If new value less than health, it will cut off health to 
@@ -40,16 +50,6 @@ namespace SpaceRoguelike
         {
             var characteristics = GetCharacteristics();
             characteristics.MaximalHealth = health;
-            if(Health > characteristics.MaximalHealth)
-            {
-                Health = characteristics.MaximalHealth;
-            }
-        }
-
-        public void Heal(float health)
-        {
-            var characteristics = GetCharacteristics();
-            Health += health;
             if(Health > characteristics.MaximalHealth)
             {
                 Health = characteristics.MaximalHealth;
