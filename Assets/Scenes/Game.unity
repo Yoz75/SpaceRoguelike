@@ -1222,6 +1222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DefeatScreen: {fileID: 904706622}
+  Characteristics: {fileID: 11400000, guid: 3cf58b6188ec28148aa69d2a848b7a14, type: 2}
 --- !u!1 &1543278648
 GameObject:
   m_ObjectHideFlags: 0

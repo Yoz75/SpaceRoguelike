@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf5acad2cf1d0144a15317ee4e36234, type: 3}
+  m_Name: Chevosekrofelyab
+  m_EditorClassIdentifier: 
+  Name: Chevosekrofelyab
+  MaximalHealth: 100
+  Damage: 1
+  Sprite: {fileID: 21300000, guid: 5ed4923f3a96fc24a9c3da1e9dafe05c, type: 3}
+  MaximalSpeed: 3
+  Impulse: 1
+  RotationSpeed: 1

@@ -16,6 +16,14 @@ namespace SpaceRoguelike
         }
 
         /// <summary>
+        /// Calls when entity is inited
+        /// </summary>
+        protected virtual void OnInit()
+        {
+            return;
+        }
+
+        /// <summary>
         /// Damage this entity.
         /// Aren't you ashamed to offend this little entity!?!!??!?!
         /// </summary>
@@ -70,6 +78,11 @@ namespace SpaceRoguelike
             //This method is optional, so we don`t mark it with abstract
             //and just return (otherwise the compiler will complain)
             return;
+        }
+
+        private void Start()
+        {
+            OnInit();
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

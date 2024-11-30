@@ -8,7 +8,7 @@ namespace SpaceRoguelike
     public class Player : Entity
     {
         [SerializeField] private GameObject DefeatScreen;
-        private PlayerCharacteristics Characteristics;
+        [SerializeField] private PlayerCharacteristics Characteristics;
 
         public override EntityCharacteristics GetCharacteristics()
         {
@@ -20,7 +20,7 @@ namespace SpaceRoguelike
             DefeatScreen.SetActive(true);
         }
 
-        private void Start()
+        protected override void OnInit()
         {
             DefeatScreen.SetActive(false);
             Heal(float.MaxValue);
