@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace SpaceRoguelike
@@ -22,6 +23,12 @@ namespace SpaceRoguelike
 
         protected override void OnInit()
         {
+            SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+            if(renderer == null)
+            {
+                throw new NullReferenceException("Player has no sprite renderer!");
+            }
+            renderer.sprite = Characteristics.Sprite;
             DefeatScreen.SetActive(false);
             Heal(float.MaxValue);
         }
