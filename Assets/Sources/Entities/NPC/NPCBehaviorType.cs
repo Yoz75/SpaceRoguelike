@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SpaceRoguelike
+namespace SpaceRoguelike.Living
 {
     public enum NPCBehaviorType
     {

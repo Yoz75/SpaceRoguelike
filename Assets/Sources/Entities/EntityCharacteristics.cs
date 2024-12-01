@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SpaceRoguelike
+namespace SpaceRoguelike.Living
 {
     [CreateAssetMenu(fileName = "NewEntity", menuName = "SpaceRoguelike/entity characteristics/new entity")]
     public class EntityCharacteristics : ScriptableObject

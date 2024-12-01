@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace SpaceRoguelike
+namespace SpaceRoguelike.Living
 {
     /// <summary>
     /// The player themself.

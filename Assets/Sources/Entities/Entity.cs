@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace SpaceRoguelike
+namespace SpaceRoguelike.Living
 {
     /// <summary>
     /// Base class for all alive-like things
