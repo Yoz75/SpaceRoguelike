@@ -2217,6 +2217,18 @@ PrefabInstance:
       propertyPath: DefeatScreen
       value: 
       objectReference: {fileID: 904706622}
+    - target: {fileID: 6704875244281731223, guid: 59c39a2e93303ad458a6588fcc2ec4ef, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704875244281731223, guid: 59c39a2e93303ad458a6588fcc2ec4ef, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704875244281731223, guid: 59c39a2e93303ad458a6588fcc2ec4ef, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

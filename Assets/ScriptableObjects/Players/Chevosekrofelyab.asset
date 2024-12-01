@@ -15,6 +15,9 @@ MonoBehaviour:
   Name: Chevosekrofelyab
   MaximalHealth: 100
   Damage: 1
+  DamageColor: {r: 1, g: 0, b: 0, a: 1}
+  DamageColorInfluence: 0.5
+  TakingDamageTime: 0.1
   Sprite: {fileID: 21300000, guid: 5ed4923f3a96fc24a9c3da1e9dafe05c, type: 3}
   MaximalSpeed: 3
   Impulse: 1

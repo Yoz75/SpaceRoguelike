@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace SpaceRoguelike
@@ -30,6 +31,7 @@ namespace SpaceRoguelike
         /// <param name="damage"></param>
         public void TakeDamage(float damage)
         {
+            OnTakenDamage(damage);
             if(Health < damage)
             {
                 Die();
@@ -68,6 +70,29 @@ namespace SpaceRoguelike
         /// Great! You killed that entity! Are you happy now?
         /// </summary>
         protected abstract void Die();
+
+        /// <summary>
+        /// Calls when entity has taken damage.
+        /// </summary>
+        /// <param name="damage"></param>
+        protected virtual void OnTakenDamage(float damage)
+        {
+            SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+            if(renderer != null)
+            {
+                StartCoroutine(TakingDamage(renderer));
+            }
+            return;
+        }
+
+        private IEnumerator TakingDamage(SpriteRenderer renderer)
+        {
+            var characteristics = GetCharacteristics();
+            var startColor = renderer.color;
+            renderer.color = Color.Lerp(startColor, characteristics.DamageColor, characteristics.DamageColorInfluence);
+            yield return new WaitForSeconds(characteristics.TakingDamageTime);
+            renderer.color = startColor;
+        }
 
         /// <summary>
         /// Calls when this entity collides with another entity
