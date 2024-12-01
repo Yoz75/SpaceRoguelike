@@ -32,7 +32,7 @@ namespace SpaceRoguelike
         public void TakeDamage(float damage)
         {
             OnTakenDamage(damage);
-            if(Health < damage)
+            if(Health <= damage)
             {
                 Die();
                 return;
