@@ -43,6 +43,7 @@ namespace SpaceRoguelike.Movement
             {
                 case InputDevice.Keyboard:
                     InputButtonsCanvas.SetActive(false);
+                    StartCoroutine(KeyboardMoving());
                     break;
                 case InputDevice.UIButtons:
                     InputButtonsCanvas.SetActive(true);
@@ -85,40 +86,39 @@ namespace SpaceRoguelike.Movement
             AddListener(RotateLeftButton, EventTriggerType.PointerExit, () => { IsShallRotateLeft = false; });
             AddListener(RotateRightButton, EventTriggerType.PointerExit, () => { IsShallRotateRight = false; });
         }
-        private void FixedUpdate()
+        private IEnumerator KeyboardMoving()
         {
-            var verticalAxis = UnityEngine.Input.GetAxis(VerticalAxis);
-
-            Movement.SetMaximalSpeed(MaximalSpeed);
-
-            var horizontalAxis = UnityEngine.Input.GetAxis(HorizontalAxis);
-
-            //When we get input from axis, we don`t care about UI buttons, 
-            //so we set every variable to false to normally process axis
-            if(verticalAxis != 0 || horizontalAxis != 0)
+            while(true)
             {
+                var verticalAxis = UnityEngine.Input.GetAxis(VerticalAxis);
+
+                Movement.SetMaximalSpeed(MaximalSpeed);
+
+                var horizontalAxis = UnityEngine.Input.GetAxis(HorizontalAxis);
+
                 IsShallMoveForward = false;
                 IsShallMoveBack = false;
                 IsShallRotateLeft = false;
                 IsShallRotateRight = false;
-            }
 
-            if(horizontalAxis > 0)
-            {
-                IsShallRotateLeft = true;
-            }
-            else if(horizontalAxis < 0)
-            {
-                IsShallRotateRight = true;
-            }
+                if(horizontalAxis > 0)
+                {
+                    IsShallRotateLeft = true;
+                }
+                else if(horizontalAxis < 0)
+                {
+                    IsShallRotateRight = true;
+                }
 
-            if(verticalAxis > 0)
-            {
-                IsShallMoveForward = true;
-            }
-            else if(verticalAxis < 0)
-            {
-                IsShallMoveBack = true;
+                if(verticalAxis > 0)
+                {
+                    IsShallMoveForward = true;
+                }
+                else if(verticalAxis < 0)
+                {
+                    IsShallMoveBack = true;
+                }
+                yield return new WaitForFixedUpdate();
             }
         }
 
