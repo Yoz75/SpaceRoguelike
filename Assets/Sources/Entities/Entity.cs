@@ -17,14 +17,6 @@ namespace SpaceRoguelike.Living
         }
 
         /// <summary>
-        /// Calls when entity is inited
-        /// </summary>
-        protected virtual void OnInit()
-        {
-            return;
-        }
-
-        /// <summary>
         /// Damage this entity.
         /// Aren't you ashamed to offend this little entity!?!!??!?!
         /// </summary>
@@ -48,6 +40,22 @@ namespace SpaceRoguelike.Living
             {
                 Health = characteristics.MaximalHealth;
             }
+        }
+
+        /// <summary>
+        /// Calls when entity is inited
+        /// </summary>
+        protected virtual void OnInit()
+        {
+            return;
+        }
+
+        /// <summary>
+        /// Calls on entity's state update
+        /// </summary>
+        protected virtual void OnTick()
+        {
+            return;
         }
 
         /// <summary>
@@ -108,6 +116,11 @@ namespace SpaceRoguelike.Living
         private void Start()
         {
             OnInit();
+        }
+
+        private void FixedUpdate()
+        {
+            OnTick();
         }
 
         private void OnCollisionEnter2D(Collision2D collision)
