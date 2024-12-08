@@ -60,5 +60,27 @@ namespace SpaceRoguelike.Sensors
             }
             return null;
         }
+
+        public static GameObject GetNearbyObjectOfTag(string tag, Vector2 point, float distance)
+        {
+            const uint angleStep = 360 / RaycastRaysCount;
+
+            for(int i = 0; i < RaycastRaysCount; i++)
+            {
+                float angle = i * angleStep * Mathf.Deg2Rad;
+                Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+
+                RaycastHit2D hit = new();
+                hit = Physics2D.Raycast(point, direction, distance);
+
+                GameObject obj = hit.collider.gameObject;
+
+                if(obj.tag == tag)
+                {
+                    return obj;
+                }
+            }
+            return null;
+        }
     }
 }
