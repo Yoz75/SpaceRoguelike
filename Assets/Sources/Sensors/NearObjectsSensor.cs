@@ -16,9 +16,9 @@ namespace SpaceRoguelike.Sensors
         /// <param name="point"></param>
         /// <param name="distance">object search distance</param>
         /// <returns></returns>
-        public static List<GameObject> GetNearObjectsToPoint(Vector2 point, float distance)
+        public static List<GameObject> GetNearObjectsNearPoint(Vector2 point, float distance)
         {
-            List<GameObject> nearObjects = null;
+            List<GameObject> nearObjects = new();
             const uint angleStep = 360 / RaycastRaysCount;
 
             for(int i = 0; i < RaycastRaysCount; i++)
