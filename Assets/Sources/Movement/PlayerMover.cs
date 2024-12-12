@@ -35,9 +35,9 @@ namespace SpaceRoguelike.Movement
         private void Start()
         {
             Rotation = GetComponent<Rigidbody2DRotation>();
-            Movement = GetComponent<Rigidbody2DMovement>();
+            Movement = GetComponent<Rigidbody2DDirectionalMovement>();
             Rotation ??= gameObject.AddComponent<Rigidbody2DRotation>();
-            Movement ??= gameObject.AddComponent<Rigidbody2DMovement>();
+            Movement ??= gameObject.AddComponent<Rigidbody2DDirectionalMovement>();
 
             switch(InputDevice)
             {
@@ -150,12 +150,14 @@ namespace SpaceRoguelike.Movement
 
         private void MoveBack()
         {
-            Movement.Move(MoveDirection.Down, Impulse);
+            Movement.Direction = MoveDirection.Down;
+            Movement.Move(Impulse);
         }
 
         private void MoveForward()
         {
-            Movement.Move(MoveDirection.Up, Impulse);
+            Movement.Direction = MoveDirection.Up;
+            Movement.Move(Impulse);
         }
 
         private void RotateRight()

@@ -8,10 +8,16 @@ namespace SpaceRoguelike.Movement
     /// Rigidbody2D
     /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
-    public class Rigidbody2DMovement : MonoBehaviour, IDirectionalMovement
+    public class Rigidbody2DDirectionalMovement : MonoBehaviour, IDirectionalMovement
     {
         private Rigidbody2D Rigidbody;
         private float MaximalSpeed = float.PositiveInfinity;
+                
+        MoveDirection IDirectionalMovement.Direction
+        { 
+            get;
+            set;
+        }
 
         private void Start()
         {
@@ -24,10 +30,10 @@ namespace SpaceRoguelike.Movement
             MaximalSpeed = speed;
         }
 
-        public void Move(MoveDirection direction, float impulse)
+        public void Move(float impulse)
         {
             Rigidbody.linearVelocity = Vector2.ClampMagnitude(Rigidbody.linearVelocity, MaximalSpeed);
-            Vector2 force = DirectionToVector2(direction) * impulse;
+            Vector2 force = DirectionToVector2(((IDirectionalMovement)this).Direction) * impulse;
 
             Rigidbody.AddRelativeForce(force);
         }
