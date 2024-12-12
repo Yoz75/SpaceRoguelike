@@ -11,6 +11,8 @@ namespace SpaceRoguelike.Living
         [SerializeField] private GameObject DefeatScreen;
         [SerializeField] private PlayerCharacteristics Characteristics;
 
+        const string PlayerTag = "Player";
+
         public override EntityCharacteristics GetCharacteristics()
         {
             return Characteristics;
@@ -23,6 +25,10 @@ namespace SpaceRoguelike.Living
 
         protected override void OnInit()
         {
+            if(gameObject.tag != PlayerTag)
+            {
+                gameObject.tag = PlayerTag;
+            }
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             if(renderer == null)
             {
