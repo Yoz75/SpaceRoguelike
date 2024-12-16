@@ -11,7 +11,7 @@ namespace SpaceRoguelike.Movement
     public class Rigidbody2DMovement : MonoBehaviour, IMovement
     {
         private Rigidbody2D Rigidbody;
-        private float MaximalSpeed = float.PositiveInfinity
+        private float MaximalSpeed = float.PositiveInfinity;
 
         private void Start()
         {
