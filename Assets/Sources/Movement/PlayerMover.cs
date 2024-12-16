@@ -12,7 +12,7 @@ namespace SpaceRoguelike.Movement
     {
         [SerializeField] private InputDevice InputDevice;
         [SerializeField] private GameObject InputButtonsCanvas;
-        private IDirectionalMovement Movement;
+        private IMovement Movement;
         private IRotation Rotation;
 
         private const string RotateLeftButtonTag = "RotateLeftButton";
@@ -35,9 +35,9 @@ namespace SpaceRoguelike.Movement
         private void Start()
         {
             Rotation = GetComponent<Rigidbody2DRotation>();
-            Movement = GetComponent<Rigidbody2DDirectionalMovement>();
+            Movement = GetComponent<Rigidbody2DMovement>();
             Rotation ??= gameObject.AddComponent<Rigidbody2DRotation>();
-            Movement ??= gameObject.AddComponent<Rigidbody2DDirectionalMovement>();
+            Movement ??= gameObject.AddComponent<Rigidbody2DMovement>();
 
             switch(InputDevice)
             {
@@ -90,11 +90,11 @@ namespace SpaceRoguelike.Movement
         {
             while(true)
             {
-                var verticalAxis = UnityEngine.Input.GetAxis(VerticalAxis);
+                var verticalAxis = Input.GetAxis(VerticalAxis);
 
                 Movement.SetMaximalSpeed(MaximalSpeed);
 
-                var horizontalAxis = UnityEngine.Input.GetAxis(HorizontalAxis);
+                var horizontalAxis = Input.GetAxis(HorizontalAxis);
 
                 IsShallMoveForward = false;
                 IsShallMoveBack = false;
@@ -150,14 +150,12 @@ namespace SpaceRoguelike.Movement
 
         private void MoveBack()
         {
-            Movement.Direction = MoveDirection.Down;
-            Movement.Move(Impulse);
+            Movement.Move(Impulse, Impulse);
         }
 
         private void MoveForward()
         {
-            Movement.Direction = MoveDirection.Up;
-            Movement.Move(Impulse);
+            Movement.Move(Impulse, Impulse);
         }
 
         private void RotateRight()
