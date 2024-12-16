@@ -150,12 +150,12 @@ namespace SpaceRoguelike.Movement
 
         private void MoveBack()
         {
-            Movement.Move(Impulse, Impulse);
+            Movement.Move(0, -Impulse);
         }
 
         private void MoveForward()
         {
-            Movement.Move(Impulse, Impulse);
+            Movement.Move(0, Impulse);
         }
 
         private void RotateRight()
