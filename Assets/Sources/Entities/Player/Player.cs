@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SpaceRoguelike.Living
@@ -8,6 +9,7 @@ namespace SpaceRoguelike.Living
     /// </summary>
     public class Player : Entity
     {
+        public static List<Player> Players = new List<Player>();
         [SerializeField] private GameObject DefeatScreen;
         [SerializeField] private PlayerCharacteristics Characteristics;
 
@@ -25,6 +27,7 @@ namespace SpaceRoguelike.Living
 
         protected override void OnInit()
         {
+            Players.Add(this);
             if(gameObject.tag != PlayerTag)
             {
                 gameObject.tag = PlayerTag;
