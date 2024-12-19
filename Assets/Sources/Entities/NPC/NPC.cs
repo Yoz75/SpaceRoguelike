@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using SpaceRoguelike.Sensors;
+using SpaceRoguelike.Helpers;
 
 namespace SpaceRoguelike.Living
 {
@@ -59,7 +60,7 @@ namespace SpaceRoguelike.Living
         protected virtual NPCBrainsInputData GetBrainsInputData()
         {
             NPCBrainsInputData inputData = new();
-            GameObject player = NearObjectsSensor.GetNearbyObjectOfTag(PlayerTag, transform.position, Characteristics.ViewRadius);
+            GameObject player = TransformHelper.GetNearest(transform, Player.Players.ToArray()).gameObject;
             var nearbyObjects = NearObjectsSensor.GetNearObjectsNearPoint(transform.position, Characteristics.ViewRadius);
             inputData.SelfHealth = Health;
 

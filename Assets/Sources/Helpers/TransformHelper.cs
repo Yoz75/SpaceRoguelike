@@ -33,6 +33,40 @@ namespace SpaceRoguelike.Helpers
             }
             return nearest;
         }
+
+        /// <summary>
+        ///Get the nearest transform to <paramref name = "self"/> from list of game objects with attached <paramref name="components"/>   
+        /// </summary>
+        /// <param name="self"></param>
+        /// <param name="components"></param>
+        /// <returns></returns>
+        public static Transform GetNearest(Transform self,params MonoBehaviour[] components)
+        {
+            Transform[] transforms = new Transform[components.Length];
+
+            for(int i = 0; i < transforms.Length; i++)
+            {
+                transforms[i] = components[i].transform;
+            }
+            return GetNearest(self, transforms);
+        }
+
+        /// <summary>
+        ///Get the nearest transform to <paramref name = "self"/> from <paramref name="gameObjects"/> transforms  
+        /// </summary>
+        /// <param name="self"></param>
+        /// <param name="gameObjects"></param>
+        /// <returns></returns>
+        public static Transform GetNearest(Transform self, params GameObject[] gameObjects)
+        {
+            Transform[] transforms = new Transform[gameObjects.Length];
+
+            for(int i = 0; i < transforms.Length; i++)
+            {
+                transforms[i] = gameObjects[i].transform;
+            }
+            return GetNearest(self, transforms);
+        }
     }
 
 }
