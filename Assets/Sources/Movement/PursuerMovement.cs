@@ -24,11 +24,13 @@ namespace SpaceRoguelike.Movement
         {
 
             Rigidbody.linearVelocity = GetForceToTarget(xImpulse, yImpulse);
+            transform.up = -(Target.position - transform.position);
         }
 
         public void MoveFromTarget(float xImpulse, float yImpulse)
         {
             Rigidbody.linearVelocity = -GetForceToTarget(xImpulse, yImpulse);
+            transform.up = Target.position - transform.position;
         }
 
         public void SetMaximalSpeed(float speed)
