@@ -12,12 +12,12 @@ namespace SpaceRoguelike.Living
         /// NPC run from player when has low health
         /// </summary>
         public bool IsShy;
-        public float ViewRadius;
+        public float ViewRadius = 10;
         public float Speed;
         /// <summary>
         /// see <see cref="NPCBrainsInputData.HealthPercentageRunawayThreshold"/>
         /// </summary>
         [Range(0f, 1f)]
-        public float HealthPercentageRunawayThreshold;
+        public float HealthPercentageRunawayThreshold = 0.2f;
     }
 }
