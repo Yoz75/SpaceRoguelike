@@ -8,8 +8,8 @@ namespace SpaceRoguelike.Living
     public class NPC : Entity
     {
         private const string PlayerTag = "Player";
-        [SerializeField] private NPCCharacteristics Characteristics;
-        private IBrains<NPCBrainsInputData, NPCBrainsOutputData> Brains;
+        [SerializeField] protected NPCCharacteristics Characteristics;
+        protected IBrains<NPCBrainsInputData, NPCBrainsOutputData> Brains;
         private uint TickIterator;
 
         public override EntityCharacteristics GetCharacteristics()
@@ -30,7 +30,6 @@ namespace SpaceRoguelike.Living
         {
             SpriteRenderer renderer = GetComponent<SpriteRenderer>();
             renderer.sprite = Characteristics.Sprite;
-            Brains = new PursuerNPCBrain();
             if(Brains == null)
             {
                 Debug.LogWarning($"NPC {name} has no brains! Isn`t this a mistake?");
@@ -49,6 +48,7 @@ namespace SpaceRoguelike.Living
             {
                 NPCBrainsInputData inputData = GetBrainsInputData();
                 var outputData = Brains.Think(inputData);
+                React(outputData);
             }
         }
 
@@ -63,6 +63,9 @@ namespace SpaceRoguelike.Living
             GameObject player = TransformHelper.GetNearest(transform, Player.Players.ToArray()).gameObject;
             var nearbyObjects = NearObjectsSensor.GetNearObjectsNearPoint(transform.position, Characteristics.ViewRadius);
             inputData.SelfHealth = Health;
+            inputData.MaximalHealth = Characteristics.MaximalHealth;
+            inputData.HealthPercentageRunawayThreshold = Characteristics.HealthPercentageRunawayThreshold;
+            inputData.IsShy = Characteristics.IsShy;
 
             inputData.NearbyObjects = nearbyObjects.ToArray();
             if(Characteristics.BehaviorType == NPCBehaviorType.Aggressive)

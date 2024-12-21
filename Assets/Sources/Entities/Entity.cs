@@ -115,6 +115,7 @@ namespace SpaceRoguelike.Living
 
         private void Start()
         {
+            Heal(float.MaxValue);
             OnInit();
         }
 

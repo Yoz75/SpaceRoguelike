@@ -14,5 +14,10 @@ namespace SpaceRoguelike.Living
         public bool IsShy;
         public float ViewRadius;
         public float Speed;
+        /// <summary>
+        /// see <see cref="NPCBrainsInputData.HealthPercentageRunawayThreshold"/>
+        /// </summary>
+        [Range(0f, 1f)]
+        public float HealthPercentageRunawayThreshold;
     }
 }

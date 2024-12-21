@@ -1075,8 +1075,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1015375527}
   - component: {fileID: 1015375526}
-  - component: {fileID: 1015375528}
   - component: {fileID: 1015375529}
+  - component: {fileID: 1015375530}
   m_Layer: 0
   m_Name: TheTriangleOfDeath
   m_TagString: Untagged
@@ -1154,19 +1154,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1015375528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1015375525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52a7cce5b6136e54ba134f44b0daa079, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Characteristics: {fileID: 11400000, guid: fe6e79016b1d6d844a46d2f40792d191, type: 2}
 --- !u!60 &1015375529
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1217,6 +1204,19 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!114 &1015375530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015375525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4dd1aadee4c2e2438b6f3e73550b7a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Characteristics: {fileID: 11400000, guid: fe6e79016b1d6d844a46d2f40792d191, type: 2}
 --- !u!4 &1242926594 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4586508315362574488, guid: 59c39a2e93303ad458a6588fcc2ec4ef, type: 3}

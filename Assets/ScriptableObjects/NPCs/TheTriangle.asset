@@ -20,3 +20,7 @@ MonoBehaviour:
   TakingDamageTime: 0.05
   Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   BehaviorType: 2
+  IsShy: 0
+  ViewRadius: 5
+  Speed: 2
+  HealthPercentageRunawayThreshold: 0.5

@@ -1,4 +1,3 @@
-
 namespace SpaceRoguelike.Living
 {
     public class PursuerNPCBrain : IBrains<NPCBrainsInputData, NPCBrainsOutputData>
@@ -12,15 +11,22 @@ namespace SpaceRoguelike.Living
                 output.Action = NPCBrainsOutputData.NPCAction.DoNothing;
             }
 
-            var healthPercentage = input.SelfHealth / input.MaximalHealth;
-
-            if(healthPercentage > input.HealthPercentageRunawayThreshold)
+            if(input.IsShy)
             {
-                output.Action = NPCBrainsOutputData.NPCAction.RunToTarget;
+
+                var healthPercentage = input.SelfHealth / input.MaximalHealth;
+                if(healthPercentage > input.HealthPercentageRunawayThreshold)
+                {
+                    output.Action = NPCBrainsOutputData.NPCAction.RunToTarget;
+                }
+                else
+                {
+                    output.Action = NPCBrainsOutputData.NPCAction.RunFromTarget;
+                }
             }
             else
             {
-                output.Action = NPCBrainsOutputData.NPCAction.RunFromTarget;
+                output.Action = NPCBrainsOutputData.NPCAction.RunToTarget;
             }
 
             return output;

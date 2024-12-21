@@ -39,7 +39,6 @@ namespace SpaceRoguelike.Living
             }
             renderer.sprite = Characteristics.Sprite;
             DefeatScreen.SetActive(false);
-            Heal(float.MaxValue);
         }
     }
 }
